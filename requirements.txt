@@ -1,0 +1,12 @@
+# Build + fetch (also installed in the server venv ~/r4m_overspeed/venv)
+pandas
+pyarrow
+numpy
+shapely
+openpyxl
+paramiko
+cryptography
+# Optional
+psycopg2-binary   # only for a direct Postgres connection (C4M_DB_MODE other than ssh)
+Pillow            # only daily_report/prepare_contour.py (re-rasterise the contour background)
+playwright        # only daily_report/render_pdf.py

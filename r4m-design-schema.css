@@ -1,0 +1,215 @@
+/* ============================================================
+   R4M AURORA — extracted design schema
+   Source: live r4m.example.local/r4m_aurora/assets/index.css
+   Reproduces the app's real CSS custom-property theme (light + dark).
+   Paste this whole block into your report's <style>, then use the
+   var(--...) tokens below wherever you'd otherwise hardcode a color.
+   ============================================================ */
+
+/* Google Fonts equivalent of the app's Rubik weights (300/400/700).
+   The live app serves Rubik-*.ttf itself, but Rubik is an open Google
+   Font, so pulling it from Google Fonts avoids depending on the
+   production server's asset paths at all. Safe to self-host instead
+   if you'd rather not call an external URL. */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
+
+:root {
+  /* backgrounds */
+  --color-bg-dashboard: #d4d4d4;
+  --color-bg-surface: #fff;
+  --color-bg-surface-secondary: #f5f5f5;
+  --color-bg-surface-tertiary: #f8f9fa;
+  --color-bg-metrics: #eef0f2;
+  --color-bg-tab-active: #eaeaea;
+  --color-bg-tab-inactive: #c7c7c7;
+  --color-bg-hover: #f5f5f5;
+  --color-bg-selected: #d1e7fd;
+  --color-bg-area-chart: #f1f3f5;
+
+  /* text */
+  --color-text-primary: #222;
+  --color-text-secondary: #666;
+  --color-text-tertiary: #8c8c8c;
+  --color-text-disabled: #999;
+  --color-text-on-primary: #fff;
+  --color-text-kpi: #3f55c6;
+
+  /* brand / primary */
+  --color-primary: #005aed;
+  --color-primary-hover: #0052d6;
+  --color-primary-light: #ddeaff;
+  --color-primary-lighter: #f0f5ff;
+  --color-primary-dark: #05498c;
+  --color-icon-on-primary: #05498c;
+
+  /* badges */
+  --badge-bg: #f0f5ff;
+  --badge-border: #ddeaff;
+  --badge-text: #05498c;
+
+  /* borders */
+  --color-border-subtle: #e0e0e0;
+  --color-border-medium: #d9d9d9;
+  --color-border-strong: #ccc;
+
+  /* charts */
+  --chart-current-shift: #005aed;
+  --chart-previous-shift: #56ccf2;
+  --chart-previous-dashed: #1890ff;
+  --chart-hang: #ffc53d;
+  --chart-queue: #398785;
+  --chart-area-bg: #f1f3f5;
+  --chart-grid-line: #f0f0f0;
+  --chart-boxplot-fill: #acdcdb;
+  --chart-boxplot-border: #48b0ad;
+  --chart-orange: #f06b32;
+  --chart-green: #87cb67;
+
+  /* status */
+  --color-success: #30b32d;
+  --color-success-light: #00920f;
+  --color-warning: #fd0;
+  --color-warning-alt: #f2ab00;
+  --color-error: #f03e3e;
+  --color-error-dark: red;
+  --color-error-alt: #e83428;
+
+  /* interaction states */
+  --state-hover-bg: #f5f5f5;
+  --state-hover-blue: #05498c1a;
+  --state-active-blue: #05498c33;
+  --state-selected: #d1e7fd;
+
+  /* scrollbar */
+  --scrollbar-track: #e5e7eb;
+  --scrollbar-thumb: #c1c1c1;
+  --scrollbar-thumb-hover: #a8a8a8;
+
+  /* elevation */
+  --shadow-sm: 0 2px 4px #0000000f;
+  --shadow-md: 0 2px 8px #0000001a;
+  --shadow-lg: 0 4px 12px #00000026;
+
+  /* datazoom (chart range slider) */
+  --datazoom-bg: #f5f5f5;
+  --datazoom-filler: #d8e2f1;
+  --datazoom-handle: #fff;
+  --datazoom-handle-border: #ccc;
+}
+
+/* Dark mode: the live app toggles this via [data-theme="dark"] on a
+   parent element (likely <html> or <body>). Mirror that same attribute
+   toggle in your report if you want a matching dark mode switch. */
+[data-theme="dark"] {
+  --color-bg-dashboard: #1a1a1a;
+  --color-bg-surface: #1e263a;
+  --color-bg-surface-secondary: #12192b;
+  --color-bg-surface-tertiary: #2a2a2a;
+  --color-bg-metrics: #292c3c;
+  --color-bg-tab-active: #12192b;
+  --color-bg-tab-inactive: #0c1120;
+  --color-bg-hover: #353535;
+  --color-bg-selected: #2d4a6b;
+  --color-bg-area-chart: #2a3142;
+
+  --color-text-primary: #e5e5e5;
+  --color-text-secondary: #a1a1a1;
+  --color-text-tertiary: gray;
+  --color-text-disabled: #666;
+  --color-text-on-primary: #fff;
+  --color-text-kpi: #6b8ce8;
+
+  --color-primary: #4a8fff;
+  --color-primary-hover: #5c9dff;
+  --color-primary-light: #ddeaff;
+  --color-primary-lighter: #f0f5ff;
+  --color-primary-dark: #05498c;
+  --color-icon-on-primary: #05498c;
+
+  --badge-bg: #1a2f4a;
+  --badge-border: #2d4a6b;
+  --badge-text: #fff;
+
+  --color-border-subtle: #404040;
+  --color-border-medium: #3d3d3d;
+  --color-border-strong: #505050;
+
+  --chart-current-shift: #4a8fff;
+  --chart-previous-shift: #7dd3fc;
+  --chart-previous-dashed: #7dd3fc;
+  --chart-hang: #fbbf24;
+  --chart-queue: #5eaba9;
+  --chart-area-bg: #2a3142;
+  --chart-grid-line: #3a4556;
+  --chart-boxplot-fill: #6bbfbd;
+  --chart-boxplot-border: #5eccc9;
+  --chart-orange: #ff8c5a;
+  --chart-green: #a3d977;
+
+  --color-success: #22c55e;
+  --color-success-light: #22c55e;
+  --color-warning: #fbbf24;
+  --color-warning-alt: #fbbf24;
+  --color-error: #ef4444;
+  --color-error-dark: #ef4444;
+  --color-error-alt: #ef4444;
+
+  --state-hover-bg: #353535;
+  --state-hover-blue: #4a8fff26;
+  --state-active-blue: #4a8fff40;
+  --state-selected: #2d4a6b;
+
+  --scrollbar-track: #2d2d2d;
+  --scrollbar-thumb: #505050;
+  --scrollbar-thumb-hover: #606060;
+
+  --shadow-sm: 0 2px 4px #0000004d;
+  --shadow-md: 0 2px 8px #0006;
+  --shadow-lg: 0 4px 12px #00000080;
+
+  --datazoom-bg: #2a2a2a;
+  --datazoom-filler: #3d5a7a;
+  --datazoom-handle: #3d3d3d;
+  --datazoom-handle-border: #555;
+}
+
+/* Base typography — matches the app's actual body rule verbatim.
+   Rubik is used for branded/heading elements in the app; body copy
+   uses the system font stack, not Rubik, despite Rubik being loaded. */
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background: var(--color-bg-dashboard);
+  color: var(--color-text-primary);
+}
+
+h1, h2, h3, .brand, .report-title {
+  font-family: "Rubik", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Common surface/card pattern used throughout the app */
+.card, .surface {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Thin scrollbar to match the app's tightened scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
